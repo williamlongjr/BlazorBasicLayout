@@ -1,0 +1,34 @@
+﻿.mainSite {
+    display: grid;
+    grid-template-areas: "mainNav mainHeader" "mainNav mainContent";
+}
+
+.mainSiteMenuHidden {
+    grid-template-columns: 1em auto;
+    grid-template-rows: 1fr 3fr;
+}
+
+.mainSiteMenuVisible {
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 3fr;
+}
+
+.mainNavHidden {
+    display: none;
+}
+
+.mainNavVisible {
+    display: inline;
+}
+
+.mainHeader {
+    grid-area: mainHeader;
+}
+
+.mainNav {
+    grid-area: mainNav;
+}
+
+.mainContent {
+    grid-area: mainContent;
+}

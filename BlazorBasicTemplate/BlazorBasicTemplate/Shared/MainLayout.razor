@@ -1,15 +1,51 @@
 ﻿@inherits LayoutComponentBase
+@using System.Data
+@using Microsoft.AspNetCore.Components
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
+<div class=@MainSiteCssClasses>
+    <div class=@NavCssClasses>
+        <NavMenu @bind-Visible="IsNavVisible" />
     </div>
 
-    <div class="content px-4">
+    <div class="mainHeader">
+        <Header OnNavSelected="@NavClicked" ></Header>
+    </div>
+
+    <div class="mainContent">
         @Body
     </div>
 </div>
+
+@functions {
+
+    const string NavVisibleClassesForMain = "mainSite mainSiteMenuVisible";
+    const string NavHiddenClassesForMain = "mainSite mainSiteMenuHidden";
+    const string NavVisibleClassesForNav = "mainNav mainNavVisible";
+    const string NavHiddenClassesForNav = "mainNav mainNavHidden";
+
+    [Parameter]
+    public string MainSiteCssClasses { get; set; } = NavVisibleClassesForMain;
+
+    [Parameter]
+    public string NavCssClasses { get; set; } = NavVisibleClassesForNav;
+
+    private bool _isNavVisible;
+    [Parameter]
+    public bool IsNavVisible
+    {
+        get => _isNavVisible;
+        set
+        {
+            _isNavVisible = value;
+            MainSiteCssClasses = _isNavVisible ? NavVisibleClassesForMain : NavHiddenClassesForMain;
+            NavCssClasses = _isNavVisible ? NavVisibleClassesForNav : NavHiddenClassesForNav;
+            this.StateHasChanged();
+        }
+    }
+
+    void NavClicked()
+    {
+        IsNavVisible = !IsNavVisible;
+    }
+
+}

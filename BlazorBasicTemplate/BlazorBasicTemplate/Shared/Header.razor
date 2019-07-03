@@ -1,0 +1,22 @@
+@page "/header"
+@using Microsoft.AspNetCore.Components
+
+    <div>
+        <button class="menuButton" onclick="@NavSelected">menu</button>
+        <a href="">LOGO Here</a>
+        <h1>Page Title</h1>
+    </div>
+
+@*<a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>*@
+
+@functions
+{
+    [Parameter]
+    public EventCallback OnNavSelected { get; set; }
+
+    void NavSelected()
+    {
+        OnNavSelected.InvokeAsync(true);
+    }
+
+}
