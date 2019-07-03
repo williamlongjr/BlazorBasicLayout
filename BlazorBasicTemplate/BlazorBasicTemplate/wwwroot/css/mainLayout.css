@@ -1,16 +1,18 @@
 ﻿.mainSite {
     display: grid;
     grid-template-areas: "mainNav mainHeader" "mainNav mainContent";
+    box-sizing: border-box;
+    transition: left 1s;
 }
 
 .mainSiteMenuHidden {
     grid-template-columns: 1em auto;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: auto 3fr;
 }
 
 .mainSiteMenuVisible {
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: auto 3fr;
 }
 
 .mainNavHidden {

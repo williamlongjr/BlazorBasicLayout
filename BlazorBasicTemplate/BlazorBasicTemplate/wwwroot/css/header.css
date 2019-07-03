@@ -1,3 +1,33 @@
 ﻿.menuButton {
-    transform: rotate(90deg);
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.menuText {
+    display: inline-block;
+    transform: rotate(-90deg);
+}
+
+.headerMainDiv {
+    display: grid;
+    grid-template-areas: "menuButtonDiv logoDiv titleDiv userDiv";
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-rows: auto;
+}
+
+.menuButtonDiv {
+    grid-area: menuButtonDiv;
+}
+
+.logoDiv {
+    grid-area: logoDiv;
+}
+
+.titleDiv {
+    grid-area: titleDiv;
+}
+
+.userDiv {
+    grid-area: userDiv;
 }
