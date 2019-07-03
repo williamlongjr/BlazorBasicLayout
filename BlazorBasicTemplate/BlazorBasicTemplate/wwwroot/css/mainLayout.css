@@ -3,24 +3,31 @@
     grid-template-areas: "mainNav mainHeader" "mainNav mainContent";
     box-sizing: border-box;
     transition: left 1s;
+    grid-template-columns: auto 4fr;
+    grid-template-rows: auto 3fr;
+    /*transition: width 2s;*/
 }
 
 .mainSiteMenuHidden {
-    grid-template-columns: 1em auto;
-    grid-template-rows: auto 3fr;
+    /*grid-template-columns: 1em auto;
+    grid-template-rows: auto 3fr;*/
 }
 
 .mainSiteMenuVisible {
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto 3fr;
+    /*grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 3fr;*/
 }
 
 .mainNavHidden {
-    display: none;
+    /*display: none;*/
+    width: 0px;
+    transition: width 2s;
 }
 
 .mainNavVisible {
-    display: inline;
+    /*display: flex;*/
+    width: 200px;
+    transition: width 2s;
 }
 
 .mainHeader {
