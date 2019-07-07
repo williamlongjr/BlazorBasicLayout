@@ -1,8 +1,8 @@
 ﻿.mainSite {
     display: grid;
     grid-template-areas: "mainNav mainHeader" "mainNav mainContent";
-    box-sizing: border-box;
-    transition: left 1s;
+    /*box-sizing: border-box;*/
+    /*transition: left 1s;*/
     grid-template-columns: auto 4fr;
     grid-template-rows: auto 3fr;
     /*transition: width 2s;*/
@@ -19,15 +19,24 @@
 }
 
 .mainNavHidden {
-    /*display: none;*/
-    width: 0px;
-    transition: width 2s;
+    transition: width .5s;
+    /*transition: visibility 0 .5s;*/
+    visibility: hidden;
+    width: 0;
+    opacity: 0;
 }
 
 .mainNavVisible {
-    /*display: flex;*/
+    /*transition: visibility .5s .5s;*/
+
+    transition: opacity .1s .4s, width .5s;
+    opacity: 1;
+
+    /*transition: width .5s;*/
     width: 200px;
-    transition: width 2s;
+
+
+    visibility: visible;
 }
 
 .mainHeader {

@@ -2,17 +2,20 @@
     display: block;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 .menuText {
     display: inline-block;
     transform: rotate(-90deg);
+    margin: 0;
+    
 }
 
 .headerMainDiv {
     display: grid;
     grid-template-areas: "menuButtonDiv logoDiv titleDiv userDiv";
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-columns: 20px auto 1fr auto;
     grid-template-rows: auto;
 }
 
