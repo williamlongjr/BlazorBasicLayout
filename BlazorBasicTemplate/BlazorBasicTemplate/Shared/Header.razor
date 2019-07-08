@@ -1,21 +1,20 @@
 @page "/header"
 @using Microsoft.AspNetCore.Components
 
-    <div class="headerMainDiv">
-        <div class="menuButtonDiv">
-            <button class="menuButton" onclick="@NavSelected"><span class="menuText">menu</span></button>
-        </div>
-        <div class="logoDiv">
-            <a href="">LOGO Here</a>
-        </div>
-        <div class="titleDiv">
-            <h1>Page Title</h1>
-
-        </div>
-        <div class="userDiv">
-            <label>User Name</label>
-        </div>
+<div class="headerMainDiv">
+    <div class="menuButtonDiv">
+        <button class="menuText" onclick="@NavSelected">menu</button>
     </div>
+    <div class="logoDiv">
+        <a href="">LOGO Here</a>
+    </div>
+    <div class="titleDiv">
+        <h1 class="titleText">Page Title</h1>
+    </div>
+    <div class="userDiv">
+        <label>User Name</label>
+    </div>
+</div>
 
 @*<a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>*@
 

@@ -1,22 +1,22 @@
-﻿.menuButton {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+﻿:root {
+    --menu-Width: 35px;
+    --menu-Height: 70px;
+    --header-Height: 70px;
 }
 
 .menuText {
-    display: inline-block;
-    transform: rotate(-90deg);
-    margin: 0;
-    
+    display: block;
+    width: var(--menu-Height);
+    height: var(--menu-Width);
+    transform-origin: right top 0;
+    transform: rotate(-90deg) translate(0, calc(-1 * var(--menu-Height)));
 }
 
 .headerMainDiv {
     display: grid;
     grid-template-areas: "menuButtonDiv logoDiv titleDiv userDiv";
-    grid-template-columns: 20px auto 1fr auto;
-    grid-template-rows: auto;
+    grid-template-columns: var(--menu-Width) auto 1fr auto;
+    grid-template-rows: var(--header-Height);
 }
 
 .menuButtonDiv {
@@ -29,6 +29,16 @@
 
 .titleDiv {
     grid-area: titleDiv;
+    display: grid;
+    text-align: center;
+    background-color: lightgrey;
+    align-items: center;
+    grid-template-rows: var(--header-Height);
+}
+
+.titleText {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .userDiv {
