@@ -45,6 +45,7 @@
 
 .mainNav {
     grid-area: mainNav;
+    background-color: lightgrey;
 }
 
 .mainContent {

@@ -4,8 +4,11 @@
     --header-Height: 70px;
 }
 
-.menuText {
+.menuButton {
     display: block;
+    border: none;
+    cursor: pointer;
+    background-color: lightgrey;
     width: var(--menu-Height);
     height: var(--menu-Width);
     transform-origin: right top 0;
@@ -31,7 +34,7 @@
     grid-area: titleDiv;
     display: grid;
     text-align: center;
-    background-color: lightgrey;
+    background-color: darkgrey;
     align-items: center;
     grid-template-rows: var(--header-Height);
 }
