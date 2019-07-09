@@ -28,13 +28,18 @@
 
 .logoDiv {
     grid-area: logoDiv;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-rows: var(--header-Height);
+    padding-left:20px;
+    padding-right:20px;  
 }
 
 .titleDiv {
     grid-area: titleDiv;
     display: grid;
     text-align: center;
-    background-color: darkgrey;
     align-items: center;
     grid-template-rows: var(--header-Height);
 }
@@ -46,4 +51,10 @@
 
 .userDiv {
     grid-area: userDiv;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-rows: var(--header-Height);
+    padding-left:20px;
+    padding-right:20px;  
 }
