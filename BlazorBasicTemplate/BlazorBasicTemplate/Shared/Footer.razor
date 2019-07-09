@@ -1,0 +1,21 @@
+@page "/footer"
+@using Microsoft.AspNetCore.Components
+
+<div>
+    <label>status1</label>
+</div>
+
+@functions {
+
+    [Parameter]
+    public bool Visible { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> VisibleChanged { get; set; }
+
+    void NavSelected()
+    {
+        VisibleChanged.InvokeAsync(!Visible);
+        this.StateHasChanged();
+    }
+}
