@@ -9,7 +9,7 @@
         <a href="">LOGO Here</a>
     </div>
     <div class="titleDiv">
-        <h1 class="titleText">Page Title</h1>
+        <h1 class="titleText">@SelectedTitle</h1>
     </div>
     <div class="userDiv">
         <label>User Name</label>
@@ -20,6 +20,9 @@
 
 @functions
 {
+    [Parameter]
+    public string SelectedTitle { get; set; }
+
     [Parameter]
     public EventCallback OnNavSelected { get; set; }
 
