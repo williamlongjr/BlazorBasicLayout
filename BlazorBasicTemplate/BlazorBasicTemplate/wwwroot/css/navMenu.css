@@ -1,0 +1,36 @@
+﻿body {
+    background-color: darkgrey;
+}
+
+.mainPageLinkContainer {
+    display: grid;
+    width: auto;
+    align-items: center;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.mainPageLink {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.mainPageLink:hover {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;  
+    text-align: center;
+}
+
+.mainPageLinkSpan {
+    display: block;
+    border-radius: 5px;
+}
+
+.mainPageLink:hover .mainPageLinkSpan {
+    background-color: black;
+    font-size: 30px;
+}
+

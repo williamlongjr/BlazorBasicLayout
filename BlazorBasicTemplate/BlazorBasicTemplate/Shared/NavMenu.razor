@@ -2,19 +2,23 @@
 @using Microsoft.AspNetCore.Http.Extensions
 @inject IUriHelper UriHelper
 
-<div>
-    <ul>
-        <li>
-            <button onclick="@(()=>NavClicked("Home", "/"))">Home</button>
-        </li>
-        <li>
-            <button onclick="@(()=>NavClicked("Counter", "/counter"))">Counter</button>
-        </li>
-        <li>
-            <button onclick="@(()=>NavClicked("Weather", "/fetchdata"))">Weather</button>
-        </li>
-    </ul>
-</div>
+    <div>
+        <div class="mainPageLinkContainer">
+            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Home", "/"))">
+                <span class="oi oi-plus mainPageLinkSpan">Home</span>
+            </a>
+        </div>
+        <div class="mainPageLinkContainer">
+            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Counter", "/counter"))">
+                <span class="oi oi-plus mainPageLinkSpan">Counter</span>
+            </a>
+        </div>
+        <div class="mainPageLinkContainer">
+            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Weather forecast", "/fetchdata"))">
+                <span class="oi oi-plus mainPageLinkSpan">Weather</span>
+            </a>
+        </div>
+    </div>
 
 @functions {
 
@@ -25,7 +29,7 @@
     public EventCallback<bool> VisibleChanged { get; set; }
 
     [Parameter]
-    public string SelectedTitle { get; set; }
+    public string SelectedTitle { get; set; } = "Home";
 
     [Parameter]
     public EventCallback<string> SelectedTitleChanged { get; set; }
