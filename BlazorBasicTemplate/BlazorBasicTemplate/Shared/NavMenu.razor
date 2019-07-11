@@ -2,22 +2,15 @@
 @using Microsoft.AspNetCore.Http.Extensions
 @inject IUriHelper UriHelper
 
-    <div>
-        <div class="mainPageLinkContainer">
-            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Home", "/"))">
-                <span class="oi oi-plus mainPageLinkSpan">Home</span>
-            </a>
-        </div>
-        <div class="mainPageLinkContainer">
-            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Counter", "/counter"))">
-                <span class="oi oi-plus mainPageLinkSpan">Counter</span>
-            </a>
-        </div>
-        <div class="mainPageLinkContainer">
-            <a href="#" class="mainPageLink" onclick="@(()=>NavClicked("Weather forecast", "/fetchdata"))">
-                <span class="oi oi-plus mainPageLinkSpan">Weather</span>
-            </a>
-        </div>
+    <div>  
+        @foreach (var i in @NavLinkItems)
+        {
+            <div class="mainPageLinkContainer" @key="@i">
+                <a href="#" class="mainPageLink" onclick="@(()=>NavClicked(i))">
+                    <span class=@i.SpanClassNames>@i.LinkName</span>
+                </a>
+            </div>
+        }
     </div>
 
 @functions {
@@ -34,6 +27,18 @@
     [Parameter]
     public EventCallback<string> SelectedTitleChanged { get; set; }
 
+    [Parameter]
+    public List<NavLinkItem> NavLinkItems { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+        NavLinkItems = new List<NavLinkItem>
+        {
+            new NavLinkItem { Title="Home", RelativeUrl = "/", LinkName = "Home", IsSelected = true },
+            new NavLinkItem { Title="Counter", RelativeUrl = "/counter", LinkName = "Counter", IsSelected = false },
+            new NavLinkItem { Title="Weather forecast", RelativeUrl = "/fetchdata", LinkName = "Weather", IsSelected = false }
+        };
+    }
 
     void NavSelected()
     {
@@ -41,10 +46,33 @@
         this.StateHasChanged();
     }
 
-    void NavClicked(string title, string relativeUrl)
+    void NavClicked(NavLinkItem navLinkItem)
     {
-        UriHelper.NavigateTo(relativeUrl);
-        SelectedTitleChanged.InvokeAsync(title);
+        NavLinkItems.ForEach(_ => _.IsSelected = false);
+        navLinkItem.IsSelected = true;
+        UriHelper.NavigateTo(navLinkItem.RelativeUrl);
+        SelectedTitleChanged.InvokeAsync(navLinkItem.Title);
+        this.StateHasChanged();
+    }
+
+    public class NavLinkItem
+    {
+        public string LinkName { get; set; }
+        public string Title { get; set; }
+        public string RelativeUrl { get; set; }
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                _isSelected = value;
+                SpanClassNames = _isSelected ? "oi oi-plus mainPageLinkSpan mainPageLinkSpanSelected" : "oi oi-plus mainPageLinkSpan";
+            }
+        }
+
+        public string SpanClassNames { get; set; }
     }
 
 }

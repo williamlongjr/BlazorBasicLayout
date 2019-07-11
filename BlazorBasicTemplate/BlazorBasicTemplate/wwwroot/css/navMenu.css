@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: darkgrey;
+    background-color: lightgrey;
 }
 
 .mainPageLinkContainer {
@@ -13,24 +13,31 @@
 .mainPageLink {
     text-decoration: none;
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     text-align: center;
+}
+
+.mainPageLinkSpanSelected {
+    background-color: #AA1F24;
 }
 
 .mainPageLink:hover {
     text-decoration: none;
     color: white;
-    font-size: 30px;  
+    font-size: 28px;  
     text-align: center;
 }
 
 .mainPageLinkSpan {
     display: block;
     border-radius: 5px;
+    width: auto;
 }
 
 .mainPageLink:hover .mainPageLinkSpan {
-    background-color: black;
-    font-size: 30px;
+    background-color: lightcoral;
+    font-size: 28px;
 }
+
+
 
