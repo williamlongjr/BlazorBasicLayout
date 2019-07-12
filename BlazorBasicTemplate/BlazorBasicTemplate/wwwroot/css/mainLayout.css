@@ -5,7 +5,7 @@
                         "mainNav mainFooter";
     grid-template-columns: auto 4fr;
     grid-template-rows: 70px calc(100vh - 105px) 35px;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 .mainNavHidden {
@@ -19,6 +19,7 @@
     transform: translate(0, 0);
     width: 200px;
     transition: transform .6s, width .6s, opacity .1s .4s;
+    background-image: linear-gradient(to top, rgba(255,0,0,0), black);
 }
 
 .mainHeader {

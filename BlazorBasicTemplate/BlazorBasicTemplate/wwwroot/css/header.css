@@ -8,11 +8,12 @@
     display: block;
     border: none;
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: black;
     width: var(--menu-Height);
     height: var(--menu-Width);
     transform-origin: right top 0;
     transform: rotate(-90deg) translate(0, calc(-1 * var(--menu-Height)));
+    color: white;
 }
 
 .headerMainDiv {
@@ -34,6 +35,14 @@
     grid-template-rows: var(--header-Height);
     padding-left:20px;
     padding-right:20px;  
+}
+
+.mainLogoImage {
+    width: 75px;
+    height: 60px;
+
+    /*width: 75px;*/
+    /*height: 90%;*/
 }
 
 .titleDiv {
