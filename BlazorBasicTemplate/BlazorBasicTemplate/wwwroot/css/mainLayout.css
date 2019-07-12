@@ -1,25 +1,30 @@
 ﻿.mainSite {
     display: grid;
+    overflow: hidden;
     grid-template-areas: "mainNav mainHeader"
                          "mainNav mainContent"
                         "mainNav mainFooter";
-    grid-template-columns: auto 4fr;
-    grid-template-rows: 70px calc(100vh - 105px) 35px;
     background-color: white;
+    overflow: hidden;
+    grid-template-rows: 70px calc(100vh - 105px) 35px;
+    grid-template-columns: 200px 1fr;
+    position: relative;
 }
 
-.mainNavHidden {
-    transform: translate(-100px, 0);
-    width: 0;
-    opacity: 0;
-    transition: transform .6s, width .6s;
+.mainSite::-webkit-overflow-scrolling {
+    display: none;
 }
 
-.mainNavVisible {
-    transform: translate(0, 0);
-    width: 200px;
-    transition: transform .6s, width .6s, opacity .1s .4s;
-    background-image: linear-gradient(to top, rgba(255,0,0,0), black);
+.mainSiteMenuHidden {
+    width: calc(100vw + 200px);
+    left: -200px;
+    transition: left .5s, width .5s;
+}
+
+.mainSiteMenuVisible {
+    width: 100vw;
+    left: 0;
+    transition: left .5s, width .5s;
 }
 
 .mainHeader {
@@ -29,6 +34,7 @@
 
 .mainNav {
     grid-area: mainNav;
+    background-image: linear-gradient(to top, rgba(255,0,0,0), black);
 }
 
 .mainContent {

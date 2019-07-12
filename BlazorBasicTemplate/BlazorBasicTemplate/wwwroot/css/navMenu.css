@@ -1,8 +1,4 @@
-﻿body {
-    background-color: lightgrey;
-}
-
-.mainPageLinkContainer {
+﻿.mainPageLinkContainer {
     display: grid;
     width: auto;
     align-items: center;
