@@ -9,7 +9,7 @@
 .mainPageLink {
     text-decoration: none;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -20,7 +20,7 @@
 .mainPageLink:hover {
     text-decoration: none;
     color: white;
-    font-size: 28px;  
+    font-size: 24px;  
     text-align: center;
 }
 
@@ -32,7 +32,7 @@
 
 .mainPageLink:hover .mainPageLinkSpan {
     background-color: lightcoral;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 
