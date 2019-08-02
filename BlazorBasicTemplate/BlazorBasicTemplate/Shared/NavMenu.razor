@@ -28,6 +28,9 @@
     public EventCallback<string> SelectedTitleChanged { get; set; }
 
     [Parameter]
+    public EventCallback<bool> OnNavSelected { get; set; }
+
+    [Parameter]
     public List<NavLinkItem> NavLinkItems { get; set; }
 
     protected override async Task OnInitAsync()
@@ -52,6 +55,7 @@
         navLinkItem.IsSelected = true;
         UriHelper.NavigateTo(navLinkItem.RelativeUrl);
         SelectedTitleChanged.InvokeAsync(navLinkItem.Title);
+        OnNavSelected.InvokeAsync(true);
         this.StateHasChanged();
     }
 

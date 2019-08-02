@@ -8,7 +8,7 @@
 
 <div class=@MainSiteCssClasses>
     <div class=@NavCssClasses>
-        <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
+        <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" OnNavSelected="@NavClicked" />
     </div>
 
     <div class="mainHeader">
@@ -52,7 +52,7 @@
     }
 
     [Parameter]
-    public string SelectedTitle { get; set; }
+    public string SelectedTitle { get; set; } //= "Home";
 
     void NavClicked()
     {
