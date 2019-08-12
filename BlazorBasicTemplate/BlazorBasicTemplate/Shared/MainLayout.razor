@@ -7,15 +7,15 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 
 <div class=@MainSiteCssClasses>
-    <div class=@NavCssClasses>
-        <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" OnNavSelected="@NavClicked" />
+    <div class=@NavCssClasses onmouseover="@NavExpand">
+        <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
     </div>
 
     <div class="mainHeader">
         <Header OnNavSelected="@NavClicked" SelectedTitle="@SelectedTitle"></Header>
     </div>
 
-    <div class="mainContent">
+    <div class="mainContent" onmouseover="@NavCollapse">
         @Body
     </div>
 
@@ -60,6 +60,16 @@
 
         var a = UriHelper.GetAbsoluteUri();
 
+    }
+
+    void NavCollapse()
+    {
+        IsNavVisible = false;
+    }
+
+    void NavExpand()
+    {
+        IsNavVisible = true;
     }
 
 }
