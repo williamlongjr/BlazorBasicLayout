@@ -3,7 +3,7 @@
 
 <div class="headerMainDiv">
     <div class="menuButtonDiv">
-        <button class="menuButton" onclick=NavSelected>menu</button>
+        <button class="menuButton" @onclick="@NavSelected">menu</button>
     </div>
     <div class="logoDiv">
         <img class="mainLogoImage" src="/Resources/Images/ExampleLogo.jpg" alt="logo here" />
@@ -26,7 +26,7 @@
     [Parameter]
     public EventCallback OnNavSelected { get; set; }
 
-    void NavSelected()
+    public void NavSelected()
     {
         OnNavSelected.InvokeAsync(true);
     }

@@ -7,7 +7,7 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 
 <div class=@MainSiteCssClasses>
-    <div class=@NavCssClasses onmouseover=NavExpand>
+    <div class=@NavCssClasses @onmouseover="@NavExpand">
         <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
     </div>
 
@@ -15,7 +15,7 @@
         <Header OnNavSelected="@NavClicked" SelectedTitle="@SelectedTitle"></Header>
     </div>
 
-    <div class="mainContent" onmouseover=NavCollapse>
+    <div class="mainContent" @onmouseover="@NavCollapse">
         @Body
     </div>
 
@@ -54,14 +54,14 @@
     [Parameter]
     public string SelectedTitle { get; set; } //= "Home";
 
-    void NavClicked()
+    public void NavClicked()
     {
         IsNavVisible = !IsNavVisible;
 
         var a = navigationManager.BaseUri;
     }
 
-    void NavCollapse()
+    public void NavCollapse()
     {
         IsNavVisible = false;
     }
