@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@inject IUriHelper UriHelper
+@inject NavigationManager navigationManager
 
 @using System.Data
 @using System.IO
@@ -7,7 +7,7 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 
 <div class=@MainSiteCssClasses>
-    <div class=@NavCssClasses onmouseover="@NavExpand">
+    <div class=@NavCssClasses onmouseover=NavExpand>
         <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
     </div>
 
@@ -15,7 +15,7 @@
         <Header OnNavSelected="@NavClicked" SelectedTitle="@SelectedTitle"></Header>
     </div>
 
-    <div class="mainContent" onmouseover="@NavCollapse">
+    <div class="mainContent" onmouseover=NavCollapse>
         @Body
     </div>
 
@@ -58,8 +58,7 @@
     {
         IsNavVisible = !IsNavVisible;
 
-        var a = UriHelper.GetAbsoluteUri();
-
+        var a = navigationManager.BaseUri;
     }
 
     void NavCollapse()
