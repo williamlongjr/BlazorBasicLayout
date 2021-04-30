@@ -3,8 +3,11 @@
 ################################################################################
 
 /.vs
-/BlazorBasicTemplate/.vs/BlazorBasicTemplate/v16
-/BlazorBasicTemplate/BlazorBasicTemplate/obj
-/BlazorBasicTemplate/BlazorBasicTemplate/bin/Debug/netcoreapp3.0
-/BlazorBasicTemplate/.vs/BlazorBasicTemplate/config
-/BlazorBasicTemplate/.vs/BlazorBasicTemplate/DesignTimeBuild
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+
+/BlazorBasicTemplate/.vs/BlazorBasicTemplate

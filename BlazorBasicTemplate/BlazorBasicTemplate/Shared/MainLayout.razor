@@ -1,74 +1,95 @@
 ﻿@inherits LayoutComponentBase
-@inject NavigationManager navigationManager
+    @inject NavigationManager navigationManager
 
-@using System.Data
-@using System.IO
-@using Microsoft.AspNetCore.Components
-@using Microsoft.AspNetCore.Mvc.RazorPages
+    @using System.Data
+    @using System.IO
+    @using Microsoft.AspNetCore.Components
+    @using Microsoft.AspNetCore.Mvc.RazorPages
 
-<div class=@MainSiteCssClasses>
-    <div class=@NavCssClasses @onmouseover="@NavExpand">
-        <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
+    <title>Big Title</title>
+
+    <div class=@MainSiteCssClasses>
+        <div class=@NavCssClasses @onmouseover="@NavExpand">
+            <NavMenu @bind-Visible="IsNavVisible" @bind-SelectedTitle="@SelectedTitle" />
+        </div>
+
+        <div class="mainHeader">
+            <Header OnNavSelected="@NavClicked" SelectedTitle="@SelectedTitle"></Header>
+        </div>
+
+        <div class="mainContent" @onmouseover="@NavCollapse">
+            @Body
+        </div>
+
+        <div class="mainFooter">
+            <Footer />
+        </div>
+
     </div>
 
-    <div class="mainHeader">
-        <Header OnNavSelected="@NavClicked" SelectedTitle="@SelectedTitle"></Header>
-    </div>
+    @functions {
 
-    <div class="mainContent" @onmouseover="@NavCollapse">
-        @Body
-    </div>
+        const string NavVisibleClassesForMain = "mainSite mainSiteMenuVisible";
+        const string NavHiddenClassesForMain = "mainSite mainSiteMenuHidden";
+        const string NavVisibleClassesForNav = "mainNav mainNavVisible";
+        const string NavHiddenClassesForNav = "mainNav mainNavHidden";
 
-    <div class="mainFooter">
-        <Footer />
-    </div>
-</div>
+        [Parameter]
+        public string MainSiteCssClasses { get; set; } = NavVisibleClassesForMain;
 
-@functions {
+        [Parameter]
+        public string NavCssClasses { get; set; } = NavVisibleClassesForNav;
 
-    const string NavVisibleClassesForMain = "mainSite mainSiteMenuVisible";
-    const string NavHiddenClassesForMain = "mainSite mainSiteMenuHidden";
-    const string NavVisibleClassesForNav = "mainNav mainNavVisible";
-    const string NavHiddenClassesForNav = "mainNav mainNavHidden";
-
-    [Parameter]
-    public string MainSiteCssClasses { get; set; } = NavVisibleClassesForMain;
-
-    [Parameter]
-    public string NavCssClasses { get; set; } = NavVisibleClassesForNav;
-
-    private bool _isNavVisible = true;
-    [Parameter]
-    public bool IsNavVisible
-    {
-        get => _isNavVisible;
-        set
+        private bool _isNavVisible = true;
+        [Parameter]
+        public bool IsNavVisible
         {
-            _isNavVisible = value;
-            MainSiteCssClasses = _isNavVisible ? NavVisibleClassesForMain : NavHiddenClassesForMain;
-            NavCssClasses = _isNavVisible ? NavVisibleClassesForNav : NavHiddenClassesForNav;
-            this.StateHasChanged();
+            get => _isNavVisible;
+            set
+            {
+                _isNavVisible = value;
+                MainSiteCssClasses = _isNavVisible ? NavVisibleClassesForMain : NavHiddenClassesForMain;
+                NavCssClasses = _isNavVisible ? NavVisibleClassesForNav : NavHiddenClassesForNav;
+                this.StateHasChanged();
+            }
         }
+
+        [Parameter]
+        public string SelectedTitle { get; set; } //= "Home";
+
+        public void NavClicked()
+        {
+            IsNavVisible = !IsNavVisible;
+
+            var a = navigationManager.BaseUri;
+        }
+
+        public void NavCollapse()
+        {
+            IsNavVisible = false;
+        }
+
+        void NavExpand()
+        {
+            IsNavVisible = true;
+        }
+
     }
 
-    [Parameter]
-    public string SelectedTitle { get; set; } //= "Home";
 
-    public void NavClicked()
-    {
-        IsNavVisible = !IsNavVisible;
+@*@inherits LayoutComponentBase
 
-        var a = navigationManager.BaseUri;
-    }
+        <div class="page">
 
-    public void NavCollapse()
-    {
-        IsNavVisible = false;
-    }
 
-    void NavExpand()
-    {
-        IsNavVisible = true;
-    }
+            <div class="main">
+                <div class="top-row px-4 auth">
+                    <LoginDisplay />
+                    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+                </div>
 
-}
+                <div class="content px-4">
+                    @Body
+                </div>
+            </div>
+        </div>*@
