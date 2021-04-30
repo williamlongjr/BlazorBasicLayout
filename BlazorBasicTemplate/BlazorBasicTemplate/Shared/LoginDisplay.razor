@@ -11,9 +11,12 @@
         }
         else
         {
-            <text>Hello, @context.User.Identity.Name!</text>
+            <div>
+                <text>@context.User.Identity.Name</text>
+                <a href="MicrosoftIdentity/Account/SignOut">Log out</a>
+            </div>
         }
-        <a href="MicrosoftIdentity/Account/SignOut">Log out</a>
+
     </Authorized>
     <NotAuthorized>
         <a href="MicrosoftIdentity/Account/SignIn">Log in</a>
